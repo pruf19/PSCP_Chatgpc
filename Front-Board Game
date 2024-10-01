@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Board Game</title>
+</head>
+<body>
+    <div>
+        <h1>Board Game</h1>
+        <p>
+            มีบอร์ดเกมอะไรบ้าง??
+        </p>
+        <ul>
+            <li>Coup</li>
+            <div>
+                <img 
+                    src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg"
+                    width="200"
+                    height="300"
+                >
+            </div>
+            <a href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">
+                How to play coup
+            </a>
+
+            <li>Uno</li>
+            <div>
+                <img 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF1Dd4SaeQd2voz7aklnwav0PzyBAzUzRFMw&sg"
+                    width="300"
+                    height="300"
+                >
+            </div>
+            <a href="https://www.youtube.com/watch?v=sWoSZmHsCls" target="_blank">
+                How to play Uno
+            </a>
+
+            <li>Salem</li>
+            <div>
+                <img 
+                    src="https://m.media-amazon.com/images/I/71Opt40lFzL._AC_SL1500_.jpg"
+                    width="300"
+                    height="300"
+                >
+            </div>
+            <a href="https://www.youtube.com/watch?v=sWoSZmHsCls" target="_blank">
+                How to play Salem
+            </a>
+            <li>Chess</li>
+            <div>
+                <img 
+                    src="https://m.media-amazon.com/images/I/71jjnsiKfCL._AC_SL1500_.jpg"
+                    width="250"
+                    height="250"
+                >
+            </div>
+            <a href="https://www.youtube.com/watch?v=HUHTUPMNdQo" target="_blank">
+                How to play Chess
+            </a>
+        </ul>
+    </div>
+</body>
+</html>
