@@ -3,62 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Board Game</title>
+    <title>Image Grid with Board Game Titles</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Grid with Board Game Titles</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .container {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+                row-gap: 75px; /* ปรับพื้นที่ระหว่างแถว */
+                padding: 20px;
+            }
+    
+            .image-box {
+                position: relative;
+                width: 200px;
+                height: 300px;
+                overflow: hidden;
+                text-align: center;
+            }
+    
+            .image-box img {
+                width: 100%;
+                height: calc(100% - 60px); /* ปรับสูงของรูปภาพเพื่อลดพื้นที่ให้กับชื่อและลิงก์ */
+                object-fit: cover;
+                margin-top: 50px; /* ยกเลิก margin เพื่อให้รูปภาพอยู่ใต้ชื่อ */
+            }
+    
+            .image-box p {
+                position: absolute;
+                top: 0px; /* ชื่อบอร์ดเกมอยู่ที่ด้านบน */
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 0;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+                background-color: rgba(0, 0, 0, 0.5);
+                padding: 5px 10px;
+            }
+    
+            .play-link {
+                display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline เพื่อให้พอดีกับข้อความ */
+                margin-top: 15px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
+                color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจน */
+                text-decoration: none; /* ยกเลิกขีดเส้นใต้ */
+                background-color: blue; /* เพิ่มพื้นหลัง */
+                padding: 10px 15px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ลิงก์ดูเหมือนปุ่ม */
+                border-radius: 5px; /* ทำมุมมน */
+                text-align: center; /* จัดให้ข้อความอยู่กลาง */
+            }
+    
+            .play-button {
+        margin-top: 5px; /* เพิ่มพื้นที่ระหว่างลิงก์และปุ่ม */
+        padding: 0; /* ยกเลิก padding */
+        background-color: #28a745; /* เปลี่ยนสีพื้นหลังเป็นสีเขียว */
+        color: transparent; /* ซ่อนข้อความ */
+        border: none;
+        border-radius: 5px; /* ทำมุมมน */
+        cursor: pointer;
+        width: 37px; /* กำหนดความกว้างของปุ่ม */
+        height: 37px; /* กำหนดความสูงของปุ่ม */
+        position: relative; /* ตั้งค่าตำแหน่งเพื่อใช้กับ :after */
+    }
+
+    .play-button.active:after {
+        content: "✓"; /* แสดงติ๊กถูก */
+        position: absolute; /* ตำแหน่งสัมพัทธ์ */
+        top: 50%; /* วางไว้กลางแนวตั้ง */
+        left: 50%; /* วางไว้กลางแนวนอน */
+        transform: translate(-50%, -50%); /* ปรับตำแหน่งให้ตรงกลาง */
+        font-size: 20px; /* กำหนดขนาดของติ๊กถูกให้ใหญ่ขึ้น */
+        color: white; /* เปลี่ยนสีของติ๊กถูก */
+    }
+
+    .play-button.active {
+        background-color: #0056b3; /* สีเมื่อปุ่มถูกกด */
+    }
+        </style>
 </head>
 <body>
-    <div>
-        <h1>Board Game</h1>
-        <p>
-            มีบอร์ดเกมอะไรบ้าง??
-        </p>
-        <ul>
-            <li>Coup</li>
-            <div>
-                <img 
-                    src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg"
-                    width="200"
-                    height="300"
-                >
-            </div>
-            <a href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">
-                How to play coup
-            </a>
-
-            <li>Uno</li>
-            <div>
-                <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF1Dd4SaeQd2voz7aklnwav0PzyBAzUzRFMw&sg"
-                    width="300"
-                    height="300"
-                >
-            </div>
-            <a href="https://www.youtube.com/watch?v=sWoSZmHsCls" target="_blank">
-                How to play Uno
-            </a>
-
-            <li>Salem</li>
-            <div>
-                <img 
-                    src="https://m.media-amazon.com/images/I/71Opt40lFzL._AC_SL1500_.jpg"
-                    width="300"
-                    height="300"
-                >
-            </div>
-            <a href="https://www.youtube.com/watch?v=Gj_-Z4QhzKE" target="_blank">
-                How to play Salem
-            </a>
-            <li>Chess</li>
-            <div>
-                <img 
-                    src="https://m.media-amazon.com/images/I/71jjnsiKfCL._AC_SL1500_.jpg"
-                    width="250"
-                    height="250"
-                >
-            </div>
-            <a href="https://www.youtube.com/watch?v=HUHTUPMNdQo" target="_blank">
-                How to play Chess
-            </a>
-        </ul>
+    <div class="container">
+        <!-- 37 Images with centered text -->
+        <div class="image-box">
+            <img src="" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
+        <div class="image-box">
+            <img src="https://www.online-station.net/wp-content/uploads/2023/07/Coup-boardgame.jpg" alt="Coup">
+            <p>Coup</p>
+            <a class="play-link" href="https://www.youtube.com/watch?v=hA_5w5BEu50" target="_blank">วิธีการเล่น</a>
+            <button class="play-button" id="toggle-button"></button> <!-- เพิ่ม id ที่นี่ -->
+        </div>
     </div>
+    <script>
+        const buttons = document.querySelectorAll('.play-button'); // เลือกปุ่มทั้งหมด
+        const link = "https://airtable.com/appZcfuXz2XriaZA0/shrot5j8Tskvn4QBW?fbclid=IwY2xjawGQfZJleHRuA2FlbQIxMAABHUszMkk5hNeSFwQYmQJ59Yn96V8vs3WC7t4q3rPn3_U2RHlpmJQgHyX2GA_aem_H9VFWoc-ZBHc8s0b6puT7Qhttps://l.facebook.com/l.php?u=https%3A%2F%2Fairtable.com%2FappZcfuXz2XriaZA0%2Fshrot5j8Tskvn4QBW%3Ffbclid%3DIwZXh0bgNhZW0CMTAAAR2vVKXXL28YThnSpS8HDvxMHHroyrUbbrX6rnLn8ezWn6zAxtI52bXGTi8_aem_RGSNB2GLUa-aagVNjTk-EQ&h=AT3XiK7NCIGe8Cr2G5szNZEOVAKf7zdhSJ9q6b3NLo2Tx5hnYgNHLphbxz0H5Dfr5M4UZIJ_ElPFb2542WsQ86p3poAMkQb6GigkeKlihaBxPi5ZjB66J7qid5Ir8-v7QGQm2pZvzojdblU";
+    
+        buttons.forEach(button => {
+            let isActive = false; // สถานะของปุ่ม
+    
+            button.addEventListener('click', () => {
+                isActive = !isActive; // สลับสถานะเมื่อกดปุ่ม
+                if (isActive) {
+                    button.classList.add('active'); // เพิ่มคลาสเพื่อเปลี่ยนสี
+                    window.location.href = link; // เปลี่ยนไปที่ลิงก์ที่กำหนด
+                } else {
+                    button.classList.remove('active'); // เอาคลาสออกเพื่อคืนค่ากลับ
+                }
+            });
+        });
+    </script>
 </body>
 </html>
