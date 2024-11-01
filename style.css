@@ -4,6 +4,23 @@ body {
     padding: 0;
 }
 
+nav {
+    font-size: 30px;
+    color: #01244b;
+    background-color: rgb(251, 239, 112);
+}
+
+.navv {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.navvv {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
