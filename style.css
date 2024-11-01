@@ -130,7 +130,7 @@ form {
 }
 
 .play-button.active {
-    background-color: #0056b3;
+    background-color: red;
 }
 /* footer */
 .footer {
@@ -173,4 +173,33 @@ form {
 
 .back-to-top:hover {
     background-color: #e65c00;
+}
+/* botton*/
+.play-link {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 20px;
+    background-color:#0056b3;
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+.play-link:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.1);
+}
+button{
+    font-size: 30px;
+    color: #01244b;
+
+    border: none;
+    border-bottom: 2px solid black;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #a9a9a9;
+    transform: scale(1.1);
 }
