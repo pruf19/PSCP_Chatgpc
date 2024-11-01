@@ -6,7 +6,8 @@ body {
 nav {
     font-size: 30px;
     color: #01244b;
-    background-color: rgb(251, 239, 112);
+    background: linear-gradient(to bottom, #fbf3d4, #fbe48b);
+    border-bottom: 3px solid #01244b; 
 }
 
 .navv {
