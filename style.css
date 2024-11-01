@@ -77,13 +77,13 @@ body {
 }
 
 .play-button.active:after {
-    content: "✓";
+    content: "X";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: white;
+    font-size: 60px;
+    color: black;
 }
 
 .play-button.active {

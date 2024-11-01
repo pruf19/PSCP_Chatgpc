@@ -213,18 +213,27 @@
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- JUNGLE SPEED -->
         </div>
     </div>
+
     <script>
-        const buttons = document.querySelectorAll('.play-button'); // เลือกปุ่มทั้งหมด
-    
+        const buttons = document.querySelectorAll('.play-button');
+
         buttons.forEach(button => {
-            let isActive = false; // สถานะของปุ่ม
-    
+            let isActive = false;
+
             button.addEventListener('click', () => {
-                isActive = !isActive; // สลับสถานะเมื่อกดปุ่ม
+                isActive = !isActive;
+                const imageBox = button.closest('.image-box');
+                const image = imageBox.querySelector('img');
+                const checkmark = imageBox.querySelector('.checkmark');
+
                 if (isActive) {
-                    button.classList.add('active'); // เพิ่มคลาสเพื่อเปลี่ยนสีและแสดงติ๊กถูก
+                    button.classList.add('active');
+                    image.style.opacity = '0.25';  // จางรูปภาพ
+                    checkmark.style.display = 'block';  // แสดงรูปเครื่องหมายถูก
                 } else {
-                    button.classList.remove('active'); // เอาคลาสออกเพื่อคืนค่ากลับ
+                    button.classList.remove('active');
+                    image.style.opacity = '1';  // คืนความชัดของรูปภาพ
+                    checkmark.style.display = 'none';  // ซ่อนรูปเครื่องหมายถูก
                 }
             });
         });
