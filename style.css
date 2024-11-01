@@ -64,7 +64,7 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    justify-content: space-between; /* ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
+    justify-content: space-between;  /*ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
     align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
 }
 
@@ -83,7 +83,7 @@ form {
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
-    color: white;
+    color: rgb(0, 255, 221);
     font-size: 16px;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.5);
@@ -107,7 +107,7 @@ form {
 .play-button {
     margin-top: 10; /* ปรับให้ไม่ต้องมีพื้นที่ด้านบน */
     padding: 10px 15px;
-    background-color: #28a745;
+    background-color: #3bd65f;
     text-align: center;
     color: white;
     font-size: 18px;
@@ -130,7 +130,7 @@ form {
 }
 
 .play-button.active {
-    background-color: red;
+    background-color: rgb(253, 55, 55);
 }
 /* footer */
 .footer {
@@ -179,7 +179,7 @@ form {
     display: inline-block;
     padding: 5px 10px;
     font-size: 20px;
-    background-color:#0056b3;
+    background-color:#65abf7;
     text-decoration: none;
     border: none;
     border-bottom: 2px solid black;
