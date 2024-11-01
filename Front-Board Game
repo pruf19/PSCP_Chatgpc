@@ -13,6 +13,22 @@
         <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav>
+        <div class="navv">
+            <div class="navvv">
+                <div class="logo"><strong>A Board (Chatgpc)</strong></div>
+            
+                <form action="#">
+                    <input type="text" placeholder="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <ul class="menu">
+                <li><a href="Tes111t">About</a></li>
+                <li><a href="Tes111t">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="image-box">
             <img src="https://inwfile.com/s-dt/zarcd7.jpg" alt="Coup">
@@ -213,21 +229,40 @@
             <button class="play-button" id="toggle-button">ยืมบอร์ดเกม</button> <!-- JUNGLE SPEED -->
         </div>
     </div>
+
     <script>
-        const buttons = document.querySelectorAll('.play-button'); // เลือกปุ่มทั้งหมด
-    
+        const buttons = document.querySelectorAll('.play-button');
+
         buttons.forEach(button => {
-            let isActive = false; // สถานะของปุ่ม
-    
+            let isActive = false;
+
             button.addEventListener('click', () => {
-                isActive = !isActive; // สลับสถานะเมื่อกดปุ่ม
+                isActive = !isActive;
+                const imageBox = button.closest('.image-box');
+                const image = imageBox.querySelector('img');
+                const checkmark = imageBox.querySelector('.checkmark');
+
                 if (isActive) {
-                    button.classList.add('active'); // เพิ่มคลาสเพื่อเปลี่ยนสีและแสดงติ๊กถูก
+                    button.classList.add('active');
+                    image.style.opacity = '0.25';  // จางรูปภาพ
+                    checkmark.style.display = 'block';  // แสดงรูปเครื่องหมายถูก
                 } else {
-                    button.classList.remove('active'); // เอาคลาสออกเพื่อคืนค่ากลับ
+                    button.classList.remove('active');
+                    image.style.opacity = '1';  // คืนความชัดของรูปภาพ
+                    checkmark.style.display = 'none';  // ซ่อนรูปเครื่องหมายถูก
                 }
             });
         });
     </script>
 </body>
+<footer class="footer">
+    <p>&copy; 2024 MyWebsite. All rights reserved.</p>
+    <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Twitter</a>
+        <a href="#">Instagram</a>
+    </div>
+    <button class="back-to-top" onclick="scrollToTop()">ด้านบน</button>
+</footer>
+<script src="javascript.js"></script>
 </html>
