@@ -1,0 +1,83 @@
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    row-gap: 20px; /* ปรับพื้นที่ระหว่างแถว */
+    padding: 20px;
+}
+
+.image-box {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.image-box img {
+    width: 100%;
+    height: calc(100% - 60px); /* ปรับสูงของรูปภาพเพื่อลดพื้นที่ให้กับชื่อและลิงก์ */
+    object-fit: cover;
+    margin-top: 10px; /* เพิ่มระยะห่างระหว่างชื่อและภาพ */
+    z-index: 1; /* ปรับ z-index ของภาพให้อยู่ล่างสุด */
+}
+
+.image-box p {
+    position: absolute;
+    top: 0px; /* ชื่อบอร์ดเกมอยู่ที่ด้านบน */
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    z-index: 2; /* ให้ข้อความอยู่ด้านบน */
+}
+
+.play-link {
+    display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline เพื่อให้พอดีกับข้อความ */
+    margin-top: 5px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
+    color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจน */
+    text-decoration: none; /* ยกเลิกขีดเส้นใต้ */
+    background-color: blue; /* เพิ่มพื้นหลัง */
+    padding: 10px 15px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ลิงก์ดูเหมือนปุ่ม */
+    border-radius: 5px; /* ทำมุมมน */
+    text-align: center; /* จัดให้ข้อความอยู่กลาง */
+    z-index: 3; /* ให้ลิงก์อยู่ด้านบน */
+}
+
+.play-button {
+    margin-top: 10px; /* เพิ่มพื้นที่ระหว่างลิงก์และปุ่ม */
+    padding: 0;
+    background-color: #28a745;
+    color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 4; /* ปรับให้ปุ่มอยู่ด้านบนสุด */
+}
+
+.play-button.active:after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: white;
+}
+
+.play-button.active {
+    background-color: #0056b3;
+}
