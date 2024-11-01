@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    row-gap: 50px; /* ปรับพื้นที่ระหว่างแถว */
+    padding: 50px;
+}
+
+.image-box {
+    position: relative;
+    width: 200px;
+    height: 450px;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: space-between; /* ใช้เพื่อให้มีพื้นที่ระหว่างแต่ละองค์ประกอบ */
+    align-items: center; /* จัดตำแหน่งให้อยู่กลางแนวนอน */
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+    height: calc(100% - 80px); /* ปรับความสูงของภาพให้สอดคล้องกับขนาดใหม่ */
+    object-fit: cover; /* คงสัดส่วนของภาพ */
+    margin-top: 10px; /* ระยะห่างระหว่างชื่อและภาพ */
+    z-index: 1; /* ให้ภาพอยู่ด้านล่างสุด */
+}
+
+.image-box p {
+    position: absolute;
+    top: 0px; /* ชื่อบอร์ดเกมอยู่ที่ด้านบน */
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    z-index: 2; /* ให้ข้อความอยู่ด้านบน */
+}
+
+.play-link {
+    display: inline-block; /* ให้ลิงก์แสดงเป็นบล็อกแบบ inline */
+    margin-top: 10px; /* ปรับเพิ่มระยะห่างระหว่างภาพและลิงก์ */
+    color: white; /* เปลี่ยนสีตัวอักษรให้เห็นชัดเจน */
+    text-decoration: none; /* ยกเลิกขีดเส้นใต้ */
+    background-color: blue; /* เพิ่มพื้นหลัง */
+    padding: 10px 15px; /* เพิ่ม padding ให้มากขึ้นเพื่อให้ลิงก์ดูเหมือนปุ่ม */
+    border-radius: 5px; /* ทำมุมมน */
+    text-align: center; /* จัดให้ข้อความอยู่กลาง */
+    z-index: 4; /* ให้ลิงก์อยู่ด้านบน */
+    margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+}
+
+.play-button {
+    margin-top: 10; /* ปรับให้ไม่ต้องมีพื้นที่ด้านบน */
+    padding: 10px 15px;
+    background-color: #28a745;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    z-index: 3; /* ปรับให้ปุ่มอยู่ด้านบนสุด */
+}
+
+.play-button.active:after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: white;
+}
+
+.play-button.active {
+    background-color: #0056b3;
+}
